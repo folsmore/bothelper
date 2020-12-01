@@ -11,6 +11,8 @@ use Yii;
  * @property string $phone
  * @property string|null $name
  * @property string|null $lastName
+ *
+ * @property Statustasks[] $statustasks
  */
 class Users extends \yii\db\ActiveRecord
 {
@@ -45,5 +47,15 @@ class Users extends \yii\db\ActiveRecord
             'name' => 'Name',
             'lastName' => 'Last Name',
         ];
+    }
+
+    /**
+     * Gets query for [[Statustasks]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getStatustasks()
+    {
+        return $this->hasMany(Statustasks::className(), ['userr' => 'idUser']);
     }
 }
