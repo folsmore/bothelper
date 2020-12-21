@@ -45,18 +45,7 @@ AppAsset::register($this);
             ['label' => 'Days', 'url' => ['/days/index']],
             ['label' => 'Status', 'url' => ['/statustasks/index']],
             ['label' => 'Users', 'url' => ['/users/index']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+           
         ],
     ]);
     NavBar::end();
@@ -73,7 +62,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Er-telecom <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
