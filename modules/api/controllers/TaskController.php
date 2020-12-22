@@ -12,17 +12,16 @@ class TaskController extends \yii\rest\ActiveController
     {
         return ['index'];
     }
-    // public function getRelations(){
-    //     return $this->hasMany(Answers::className(), ['Task' => 'idEntry']);
-    // }
+  
     public function actionIndex()
     {   
         
         $result=[];
         $model = new $this->modelClass;
         
-        foreach($model::find()->all() as $row){
+        foreach($model::findAll(['numberBlock' => \Yii::$app->request->getQueryParam('numberBlock')]) as $row){
             $result[] = [
+                'numberBlock'=> $row ->numberBlock,
                 'title'=> $row->Task,
                 'answers' => $row->answers,
             ];
