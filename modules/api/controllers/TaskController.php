@@ -21,7 +21,6 @@ class TaskController extends \yii\rest\ActiveController
         
         foreach($model::findAll(['numberBlock' => \Yii::$app->request->getQueryParam('numberBlock')]) as $row){
             $result[] = [
-                'numberBlock'=> $row ->numberBlock,
                 'title'=> $row->Task,
                 'answers' => $row->answers,
             ];
